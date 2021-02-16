@@ -17,6 +17,7 @@ const LoginForm = () => {
             localStorage.setItem('password',password)
 
             window.location.reload()
+            setError('')
         }catch (error){
             setError('Oops, incorrect credentials.')
         }
