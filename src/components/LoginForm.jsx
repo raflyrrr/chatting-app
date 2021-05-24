@@ -25,14 +25,14 @@ const LoginForm = () => {
       window.location.reload();
       setError("");
     } catch (error) {
-      setError("Oops, incorrect credentials.");
+      setError("Username dan Password yang anda masukkan salah.");
     }
   };
 
   return (
     <div className="wrapper">
       <div className="form">
-        <h1 className="title">React Chat App</h1>
+        <h1 className="title">Fiew Chat App</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -41,6 +41,7 @@ const LoginForm = () => {
             className="input"
             placeholder="Username"
             required
+            autoFocus={true}
           />
           <input
             type="password"
@@ -52,14 +53,11 @@ const LoginForm = () => {
           />
           <div align="center">
             <button type="submit" className="button">
-              <span>Start Chatting</span>
+              <span>Mulai Chatting</span>
             </button>
           </div>
           <h2 className="error">{error}</h2>
         </form>
-        <div align="center" style={{color:'white'}}>
-          <MadeWithLove by="Rafli Ramadhan" emoji />
-        </div>
       </div>
     </div>
   );

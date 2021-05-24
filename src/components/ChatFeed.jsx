@@ -2,10 +2,18 @@ import React from "react";
 import MessageForm from "./MessageForm";
 import MyMessage from "./MyMessage";
 import TheirMessage from "./TheirMessage";
+import LogoutForm from './LogoutForm'
+import SyncLoader from 'react-spinners/SyncLoader'
+import { css } from "@emotion/react";
+
 
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
-
+  const override = css`
+  display:block;
+  padding:40%;
+  margin-left:28px;
+`;
   const chat = chats && chats[activeChat];
 
   const renderReadReceipts = (message,isMyMessage)=>{
@@ -54,10 +62,15 @@ const ChatFeed = (props) => {
   };
 
 
-  if (!chat) return "Loading...";
+  if (!chat) return <SyncLoader
+  color={"#00b7ff;"}
+  css={override}
+  size={20}
+/>
 
   return (
     <div className="chat-feed">
+      <LogoutForm/>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
